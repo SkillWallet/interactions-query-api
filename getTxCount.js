@@ -17,9 +17,10 @@ const customParams = {
   contractAddress: ['contractAddress'],
   startBlock: ['start', 'startBlock'],
   chainID: ['chainId', 'chainID'],
+  covalentAPIKey: ['covalentAPIKey', 'apiKey', 'covalentKey'],
   endpoint: false,
 }
-const covalentAPIKey = 'ckey_aae01fa51e024af3a2634d9d030'
+
 const getTxCount = async (input, callback) => {
   console.log('chainlink adapter called')
   // The Validator helps you validate the Chainlink request data
@@ -29,6 +30,7 @@ const getTxCount = async (input, callback) => {
   const contractAddress = validator.validated.data.contractAddress
   const startBlock = validator.validated.data.startBlock
   const chainID = validator.validated.data.chainID
+  const covalentAPIKey = validator.validated.data.covalentAPIKey
   console.log('parameter validation passed')
 
   let finished = false
@@ -36,7 +38,6 @@ const getTxCount = async (input, callback) => {
   let pageSize = 1000000000
   let txCountPerUser = {}
     for (var userAddress of userAddresses ) {
-    // let pageSize = 100
     while (!finished) {
       const url = `https://api.covalenthq.com/v1/${chainID}/address/${userAddress}/transactions_v2/?&key=${covalentAPIKey}&no-logs=true&page-size=${pageSize}&page-number=${pageNumber}`
       const result = await axios.get(url)

@@ -1,0 +1,10 @@
+{
+    "id": 1,
+    "data": {
+        "userAddresses": ["0x2CEF62C91Dd92FC35f008D1d6Ed08EADF64306bc"],
+        "contractAddress": "0x0b59e3971a867c0dcfba2a62145c11ec94a3a1b5",
+        "chainID": 80001,
+        "startBlock": 1,
+        "covalentAPIKey": "ckey_aae01fa51e024af3a2634d9d030"
+    }
+}
