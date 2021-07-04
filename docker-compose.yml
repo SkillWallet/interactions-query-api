@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  transactions-query-api-external-adapter:
+    container_name: transactions-query-api
+    image: node
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "7080:7080"
+    command: /bin/bash -c 'yarn; yarn start;'
+    networks:
+      - transactions-query-api
+
+networks:
+  transactions-query-api:

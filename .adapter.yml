@@ -1,0 +1,14 @@
+name: SW Validator
+description: An external adapter which verifies SW authentication.
+node_identifier: sw-validator
+platforms:
+  - Docker
+data_sources:
+  - name: DistributedTown
+    url: https://distributed.town
+parameters:
+  - pubKey
+  - action
+  - tokenId
+  - signature
+  - recoveryParam
