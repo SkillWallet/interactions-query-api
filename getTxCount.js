@@ -38,7 +38,13 @@ const getTxCount = async (input, callback) => {
   let pageSize = 1000000000
   let txCount = 0;
   while (!finished) {
-    const url = `https://api.covalenthq.com/v1/${chainID}/address/${userAddress}/transactions_v2/?&key=${covalentAPIKey}&no-logs=true&page-size=${pageSize}&page-number=${pageNumber}`
+    const url = `https://api.covalenthq.com/v1/${chainID}
+                /address/${userAddress}
+                /transactions_v2
+                /?&key=${covalentAPIKey}
+                &no-logs=true&
+                page-size=${pageSize}
+                &page-number=${pageNumber}`
     const result = await axios.get(url)
     if (result.data.data.items.length > 0) {
       txCount += result.data.data.items.filter(
